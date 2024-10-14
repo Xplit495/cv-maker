@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae Maker | Register</title>
+    <link rel="stylesheet" href="../CSS/registerPage.css">
+    <link rel="stylesheet" href="../CSS/main.css">
+</head>
+
+<body>
+
+<div id="wrapper">
+    <div class="container">
+        <div class="heading">S'enregistrer</div>
+        <form action="../PHP/register.php" method="post" class="form">
+
+            <label for="email">
+                <input autofocus required class="input" type="email" name="email" id="email" placeholder="E-mail">
+            </label>
+
+            <label for="firstName">
+                <input required class="input" type="text" name="first_name" id="firstName" placeholder="Prénom">
+            </label>
+
+            <label for="lastName">
+                <input required class="input" type="text" name="last_name" id="lastName" placeholder="Nom">
+            </label>
+
+            <label for="password">
+                <input required class="input" type="password" name="password" id="password" placeholder="Mot de passe">
+            </label>
+
+            <input class="registerButton" type="submit" value="S'inscrire">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

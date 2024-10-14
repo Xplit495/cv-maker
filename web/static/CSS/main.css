@@ -17,7 +17,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 #logo {
@@ -31,7 +30,7 @@ header {
     gap: 17%;
 }
 
-#login, #register, #registerSubtitle{
+#login, #register {
     font-weight: normal;
     padding: 7px 15px;
     color: #ffffff;
@@ -41,52 +40,10 @@ header {
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    line-height: 115%;
 }
 
 #login:hover, #register:hover {
     background-color: #af4662;
     transform: scale(1.1);
 }
-
-#left{
-    margin-top: 6%;
-    margin-left: 6%;
-}
-
-#slogan{
-    margin-bottom: 3%;
-}
-
-.blackText{
-    color: #373737;
-    font-size: 50px;
-    font-weight: bold;
-}
-
-#blueText {
-    color: #289db9;
-    font-size: 50px;
-    font-weight: bold;
-}
-
-#blackTextBis{
-    color: #373737;
-    font-size: 33px;
-    font-weight: bold;
-}
-
-#subtitleText {
-    color: #373737;
-    font-size: 20px;
-    font-weight: normal;
-}
-
-#subtitle{
-    margin-bottom: 3%;
-}
-
-#registerSubtitle{
-    padding: 7px 60px;
-}
-
-

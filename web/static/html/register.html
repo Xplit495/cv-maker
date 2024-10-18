@@ -1,14 +1,10 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Curriculum Vitae Maker | Register</title>
-    <link rel="stylesheet" href="../CSS/registerPage.css">
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -17,14 +13,7 @@ session_start();
     <div class="container">
         <div class="heading">S'enregistrer</div>
 
-        <?php if (isset($_SESSION['error_message'])): ?>
-            <div class="error-notification">
-                <?= $_SESSION['error_message']; ?>
-            </div>
-            <?php unset($_SESSION['error_message']);?>
-        <?php endif; ?>
-
-        <form action="../PHP/register.php" method="POST" class="form">
+        <form action="../php/service/registerService.php" method="POST" class="form">
 
             <label for="email">
                 <input autofocus required class="input" type="email" name="email" id="email" placeholder="E-mail">

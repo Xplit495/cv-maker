@@ -1,14 +1,10 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Curriculum Vitae Maker | Login</title>
-    <link rel="stylesheet" href="../CSS/loginPage.css">
-    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
@@ -16,15 +12,7 @@ session_start();
 <div id="wrapper">
     <div class="container">
         <div class="heading">Connexion</div>
-
-        <?php if (isset($_SESSION['success_message'])): ?>
-            <div class="success-notification">
-                <?= $_SESSION['success_message']; ?>
-            </div>
-            <?php unset($_SESSION['success_message']);?>
-        <?php endif; ?>
-
-        <form action="../PHP/login.php" method="POST" class="form">
+        <form action="../php/service/loginService.php" method="POST" class="form">
             <label for="email">
                 <input required autofocus class="input" type="email" name="email" id="email" placeholder="E-mail">
             </label>

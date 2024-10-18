@@ -1,9 +1,6 @@
 <?php
 
-require '../../../vendor/autoload.php';
-use Ramsey\Uuid\Uuid;
-
-$pdo = require_once 'db.php';
+$pdo = require_once 'dbConnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
@@ -33,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-    $uuid = Uuid::uuid4();
+    $uuid = generateUuidV4();
 
     $stmt = $pdo->prepare("INSERT INTO user (id, email, first_name, last_name, password) VALUES (:uuid, :email, :firstName, :lastName, :hashedPassword)");
     $stmt->bindParam(':uuid', $uuid);
@@ -45,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         $_SESSION['success_message'] = 'Votre compte a été créé avec succès ! Vous pouvez maintenant vous connecter.';
 
-        header('Location: ../HTML/loginPage.php');
+        header('Location: ../html/login.html');
         exit;
     } else {
         $_SESSION['error_message'] = 'Erreur lors de la création du compte. Veuillez réessayer plus tard.';
@@ -55,4 +52,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     $_SESSION['error_message'] = 'Méthod de requête non autorisée';
     die("Méthod de requête non autorisée");
+}
+
+function generateUuidV4(): string
+{
+    try {
+        $data = random_bytes(16);
+    } catch (Exception $e) {
+        die('Erreur lors de la génération d\'octets aléatoires : ' . $e->getMessage());
+    }
+
+    $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+    $data[8] = chr(ord($data[8]) & 0x3f | 0x80);
+
+    // Retourner sous le format UUID standard
+    return sprintf('%s-%s-%s-%s-%s',
+        bin2hex(substr($data, 0, 4)),
+        bin2hex(substr($data, 4, 2)),
+        bin2hex(substr($data, 6, 2)),
+        bin2hex(substr($data, 8, 2)),
+        bin2hex(substr($data, 10, 6))
+    );
 }

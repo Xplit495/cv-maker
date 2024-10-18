@@ -1,5 +1,5 @@
 <?php
-$dbPath = '../../dynamic/database.sqlite';
+$dbPath = '../../data/database.sqlite';
 
 try {
     $pdo = new PDO("sqlite:" . $dbPath);

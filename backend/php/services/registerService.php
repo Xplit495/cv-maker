@@ -1,6 +1,6 @@
 <?php
 
-$pdo = require_once 'dbConnect.php';
+$pdo = require_once '../dbConnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();

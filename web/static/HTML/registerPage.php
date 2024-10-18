@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,7 +16,15 @@
 <div id="wrapper">
     <div class="container">
         <div class="heading">S'enregistrer</div>
-        <form action="../PHP/register.php" method="post" class="form">
+
+        <?php if (isset($_SESSION['error_message'])): ?>
+            <div class="error-notification">
+                <?= $_SESSION['error_message']; ?>
+            </div>
+            <?php unset($_SESSION['error_message']);?>
+        <?php endif; ?>
+
+        <form action="../PHP/register.php" method="POST" class="form">
 
             <label for="email">
                 <input autofocus required class="input" type="email" name="email" id="email" placeholder="E-mail">

@@ -13,10 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = trim($_POST['password']);
 
     if (empty($email) || empty($firstName) || empty($lastName) || empty($password)) {
+        $_SESSION['error_message'] = 'Veuillez remplir tous les champs.';
         die('Veuillez remplir tous les champs.');
     }
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['error_message'] = 'Adresse mail invalide.';
         die('Adresse mail invalide.');
     }
 
@@ -26,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch();
 
     if ($user) {
+        $_SESSION['error_message'] = 'Cette adresse mail existe déjà.';
         die('Cette adresse mail existe déjà.');
     }
 
@@ -45,9 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: ../HTML/loginPage.php');
         exit;
     } else {
+        $_SESSION['error_message'] = 'Erreur lors de la création du compte. Veuillez réessayer plus tard.';
         die("Erreur lors de la création du compte. Veuillez réessayer plus tard.");
     }
 
 } else {
+    $_SESSION['error_message'] = 'Méthod de requête non autorisée';
     die("Méthod de requête non autorisée");
 }

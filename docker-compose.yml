@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-apache-container
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./web/dynamic:/var/www/html/web/dynamic
+      - ./php.ini:/usr/local/etc/php/php.ini

@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($stmt->execute()) {
         $_SESSION['success_message'] = 'Votre compte a été créé avec succès ! Vous pouvez maintenant vous connecter.';
 
-        header('Location: ../html/login.html');
+        header('Location: /login');
         exit;
     } else {
         $_SESSION['error_message'] = 'Erreur lors de la création du compte. Veuillez réessayer plus tard.';

@@ -12,6 +12,7 @@ switch ($path) {
     case '/register':
         require '../../frontend/html/register.html';  // Page d'inscription
         break;
+
     default:
         http_response_code(404);
         echo '404 - Page not found';

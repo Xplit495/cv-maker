@@ -7,6 +7,7 @@
     <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/login.js" defer></script>
 </head>
 
 <body>
@@ -14,13 +15,19 @@
 <div id="wrapper">
     <div class="container">
         <div class="heading">Connexion</div>
+
+        <div id="success-message" style="display:none;"></div>
+
         <form action="../../backend/php/services/loginService.php" method="POST" class="form">
+
             <label for="email">
                 <input required autofocus class="input" type="email" name="email" id="email" placeholder="E-mail">
             </label>
+
             <label for="password">
                 <input required class="input" type="password" name="password" id="password" placeholder="Mot de passe">
             </label>
+
             <input class="login-button" type="submit" value="Se connecter">
         </form>
     </div>

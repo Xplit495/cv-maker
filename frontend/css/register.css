@@ -43,7 +43,7 @@
     width: 100%;
     font-weight: bold;
     font-size: 20px;
-    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    background: linear-gradient(45deg, rgb(16, 137, 211) 1%, rgb(18, 177, 209) 100%);
     color: white;
     padding-block: 15px;
     margin: 20px auto;
@@ -64,3 +64,14 @@
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0 15px 10px -10px;
 }
 
+#error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    display: none; /* Masqué par défaut */
+}

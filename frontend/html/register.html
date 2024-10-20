@@ -7,6 +7,7 @@
     <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/register.js" defer></script>
 </head>
 
 <body>
@@ -15,7 +16,9 @@
     <div class="container">
         <div class="heading">S'enregistrer</div>
 
-        <form action="/backend/php/services/registerService.php" method="POST" class="form">
+        <div id="error-message" style="display:none;"></div>
+
+        <form id="registerForm" method="POST" class="form">
 
             <label for="email">
                 <input autofocus required class="input" type="email" name="email" id="email" placeholder="E-mail">

@@ -1,5 +1,5 @@
 <?php
-$dbPath = '../../data/database.sqlite'; # Car le fichier dbConnect.php est appelé depuis le dossier services et le chemin vers la base de données est relatif à ce fichier.
+$dbPath = __DIR__ . '/../data/database.sqlite'; # Car le fichier dbConnect.php est appelé depuis le dossier services et le chemin vers la base de données est relatif à ce fichier.
 
 try {
     $pdo = new PDO("sqlite:" . $dbPath);

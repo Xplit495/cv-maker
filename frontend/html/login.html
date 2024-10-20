@@ -16,9 +16,10 @@
     <div class="container">
         <div class="heading">Connexion</div>
 
-        <div id="success-message" style="display:none;"></div>
+        <div id="success-message"></div>
+        <div id="error-message"></div>
 
-        <form action="../../backend/php/services/loginService.php" method="POST" class="form">
+        <form id="loginForm" method="POST" class="form">
 
             <label for="email">
                 <input required autofocus class="input" type="email" name="email" id="email" placeholder="E-mail">

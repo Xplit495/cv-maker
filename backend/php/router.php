@@ -4,17 +4,19 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($path) {
     case '/':
-        require '../../frontend/html/index.html';  // Page d'accueil
+        require 'controllers/indexController.php';  // Page d'accueil
         break;
     case '/login':
-        require '../../frontend/html/login.html';  // Page de connexion
+        require 'controllers/loginController.php';  // Page de connexion
         break;
     case '/register':
-        require '../../frontend/html/register.html';  // Page d'inscription
+        require 'controllers/registerController.php';  // Page d'inscription
+        break;
+    case '/dashboard':
+        require 'controllers/dashboardController.php';  // Page du dashboard
         break;
 
     default:
-        http_response_code(404);
-        echo '404 - Page not found';
+        require '../../frontend/html/404.html';  // Page 404
         break;
 }

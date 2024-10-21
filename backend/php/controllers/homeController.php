@@ -2,9 +2,9 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) { // Vérifier si l'utilisateur n'est connecté
-    require __DIR__ . '/../../../frontend/html/register.html';
+    header("Location: /login");
     exit;
 }
 
-header("Location: /home");
+require __DIR__ . '/../../../frontend/html/home.html';
 exit;

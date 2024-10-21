@@ -4,7 +4,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
     const formData = new FormData(this);
     const errorMessageElement = document.getElementById('error-message');
 
-    fetch('/backend/php/services/registerService.php', {
+    fetch('/backend/php/services/auth/registerService.php', {
         method: 'POST',
         body: formData
     })

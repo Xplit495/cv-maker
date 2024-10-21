@@ -12,6 +12,12 @@ switch ($path) {
     case '/register':
         require 'controllers/registerController.php';  // Page d'inscription
         break;
+    case '/logout':
+        require 'controllers/logoutController.php';  // Service de déconnexion
+        break;
+    case '/home':
+        require 'controllers/homeController.php';  // Page d'accueil
+        break;
     case '/dashboard':
         require 'controllers/dashboardController.php';  // Page du dashboard
         break;

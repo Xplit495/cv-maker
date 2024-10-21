@@ -4,9 +4,9 @@
 }
 
 #interactionButtons {
-    margin-right: 8%;
+    margin-right: 20%;
     display: flex;
-    gap: 17%;
+    gap: 7%;
 }
 
 #left{
@@ -36,33 +36,14 @@
     font-weight: bold;
 }
 
-#subtitleText {
-    color: #373737;
-    font-size: 25px;
-    font-weight: normal;
-}
-
-#subtitle{
+#userInformations {
     margin-bottom: 4%;
 }
 
-#registerSubtitle{
+#userText {
+    color: #373737;
+    font-size: 25px;
     font-weight: normal;
-    color: #ffffff;
-    background-color: #516077;
-    border: none;
-    border-radius: 35px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    line-height: 115%;
-    margin-left: 16%;
-    padding: 9px 60px;
-}
-
-#registerSubtitle:hover{
-    background-color: #af4662;
-    transform: scale(1.1);
 }
 
 #right{
@@ -78,20 +59,17 @@
 
 #cv1, #cv2 {
     position: absolute;
+    height: 60vh;
+    top: 0;
+    transform: rotate(25deg);
 }
 
 #cv1 {
-    height: 60vh;
-    top: 0;
     left: 0;
     z-index: 0; /* Image en dessous */
-    transform: rotate(25deg);
 }
 
 #cv2 {
-    height: 60vh;
-    top: 0;
     left: 120px; /* Ajuste cette valeur pour déplacer horizontalement */
     z-index: 1; /* Image au-dessus */
-    transform: rotate(25deg);
 }

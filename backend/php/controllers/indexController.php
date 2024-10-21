@@ -1,7 +1,4 @@
 <?php
-require_once __DIR__ . '/../utils.php';
-
-// Démarrer la session pour accéder aux variables de session
 session_start();
 
 if (!isset($_SESSION['user_id'])) { // Vérifier si l'utilisateur n'est pas connecté
@@ -9,5 +6,5 @@ if (!isset($_SESSION['user_id'])) { // Vérifier si l'utilisateur n'est pas conn
     exit;
 }
 
-header("Location: /dashboard");
-require __DIR__ . '/../../../frontend/html/dashboard.html';
+header("Location: /home");
+exit;

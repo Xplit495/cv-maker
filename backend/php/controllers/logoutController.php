@@ -6,5 +6,6 @@ if (!isset($_SESSION['user_id'])) { // V√©rifier si l'utilisateur n'est connect√
     exit;
 }
 
-require __DIR__ . '/../../../frontend/html/dashboard.html';
+require __DIR__ . '/../services/auth/logoutService.php';
+require __DIR__ . '/../../../frontend/html/logoutSuccess.html';
 exit;

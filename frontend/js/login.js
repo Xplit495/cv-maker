@@ -15,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     const formData = new FormData(this);
     const errorMessageElement = document.getElementById('error-message');
 
-    fetch('/backend/php/services/loginService.php', {
+    fetch('/backend/php/services/auth/loginService.php', {
         method: 'POST',
         body: formData
     })
@@ -25,7 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 errorMessageElement.textContent = data.message;
                 errorMessageElement.style.display = 'block';
             } else if (data.status === 'success') {
-                window.location.href = '/dashboard';
+                window.location.href = '/home';
             }
         })
         .catch(error => {

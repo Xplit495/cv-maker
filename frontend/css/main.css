@@ -24,13 +24,8 @@ header {
     margin-left: 3%;
 }
 
-#interactionButtons {
-    margin-right: 8%;
-    display: flex;
-    gap: 17%;
-}
-
-#login, #register {
+.buttons {
+    white-space: nowrap;
     font-weight: normal;
     padding: 7px 15px;
     color: #ffffff;
@@ -43,7 +38,7 @@ header {
     line-height: 115%;
 }
 
-#login:hover, #register:hover {
+.buttons:hover {
     background-color: #af4662;
     transform: scale(1.1);
 }

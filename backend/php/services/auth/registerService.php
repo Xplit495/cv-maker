@@ -1,13 +1,13 @@
 <?php
 header('Content-Type: application/json');
 
-$pdo = require_once '../dbConnect.php';
-require_once '../utils.php';
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: /404");
     exit;
 }
+
+$pdo = require_once '../../dbConnect.php';
+require_once '../../utils.php';
 
 $email = trim($_POST['email']);
 $firstName = trim($_POST['first_name']);

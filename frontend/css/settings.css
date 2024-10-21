@@ -1,0 +1,101 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fffcf5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.profile-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 400px;
+    margin-top: 17vh;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-info label {
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-info span {
+    font-size: 16px;
+    color: #333;
+}
+
+.edit-btn {
+    background-color: #373737;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.edit-btn:hover {
+    background-color: #009cb8;
+}
+
+header {
+    background-color: #ffffff;
+    width: 100%;
+    height: 10vh;
+    box-shadow: 0 4px 8px 0 #e9e9ea;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo {
+    height: 175%;
+    margin-left: 3%;
+}
+
+#interactionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5%;
+    margin-right: 3%;
+}
+
+.buttons:hover {
+    background-color: #009cb8;
+    transform: scale(1.1);
+}
+
+#error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    display: none;
+    margin-bottom: 6%;
+}
+

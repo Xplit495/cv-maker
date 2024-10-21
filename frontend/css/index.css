@@ -3,12 +3,6 @@
     justify-content: space-between;
 }
 
-#interactionButtons{
-    margin-right: 10%;
-    display: flex;
-    gap: 17%;
-}
-
 #left{
     margin-top: 6%;
     margin-left: 6%;
@@ -72,8 +66,8 @@
 
 #image {
     position: relative;
-    width: 100%; /* Ajuste la largeur selon tes besoins */
-    height: auto; /* Ajuste la hauteur selon tes besoins */
+    width: 100%;
+    height: auto;
 }
 
 #cv1, #cv2 {
@@ -84,14 +78,14 @@
     height: 60vh;
     top: 0;
     left: 0;
-    z-index: 0; /* Image en dessous */
+    z-index: 0;
     transform: rotate(25deg);
 }
 
 #cv2 {
     height: 60vh;
     top: 0;
-    left: 120px; /* Ajuste cette valeur pour déplacer horizontalement */
-    z-index: 1; /* Image au-dessus */
+    left: 120px;
+    z-index: 1;
     transform: rotate(25deg);
 }

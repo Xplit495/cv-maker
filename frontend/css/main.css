@@ -10,6 +10,7 @@ body {
 
 header {
     background-color: #ffffff;
+    max-width: 100%;
     width: 100%;
     height: 10vh;
     box-shadow: 0 4px 8px 0 #e9e9ea;
@@ -24,21 +25,32 @@ header {
     margin-left: 3%;
 }
 
+#interactionButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5%;
+    margin-right: 3%;
+}
+
 .buttons {
     white-space: nowrap;
     font-weight: normal;
-    padding: 7px 15px;
     color: #ffffff;
-    background-color: #516077;
+    background-color: #373737;
     border: none;
     border-radius: 35px;
     cursor: pointer;
     font-size: 18px;
     transition: background-color 0.3s ease, transform 0.3s ease;
     line-height: 115%;
+
+    width: 150px;
+    height: 35px;
+    text-align: center;
 }
 
 .buttons:hover {
-    background-color: #af4662;
+    background-color: #009cb8;
     transform: scale(1.1);
 }
+

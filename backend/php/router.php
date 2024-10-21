@@ -4,28 +4,31 @@ $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($path) {
     case '/':
-        require 'controllers/indexController.php';  // Page d'accueil
+        require 'controllers/indexController.php';
         break;
     case '/login':
-        require 'controllers/loginController.php';  // Page de connexion
+        require 'controllers/loginController.php';
         break;
     case '/register':
-        require 'controllers/registerController.php';  // Page d'inscription
+        require 'controllers/registerController.php';
         break;
     case '/logout':
-        require 'controllers/logoutController.php';  // Service de déconnexion
+        require 'controllers/logoutController.php';
         break;
     case '/home':
-        require 'controllers/homeController.php';  // Page d'accueil
+        require 'controllers/homeController.php';
         break;
     case '/dashboard':
-        require 'controllers/dashboardController.php';  // Page du dashboard
+        require 'controllers/dashboardController.php';
         break;
     case '/contact':
-        require '../../frontend/html/contact.html';  // Page de contact
+        require 'controllers/contactController.php';
+        exit;
+    case '/settings':
+        require 'controllers/settingsController.php';
         break;
 
     default:
-        require '../../frontend/html/404.html';  // Page 404
+        require '../../frontend/html/404.html';
         break;
 }

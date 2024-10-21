@@ -1,4 +1,3 @@
-// To check if the user just create an account and display a success message
 const registerSuccess = sessionStorage.getItem('registerSuccess');
 
 if (registerSuccess === 'true') {
@@ -10,7 +9,7 @@ if (registerSuccess === 'true') {
 }
 
 document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
+    event.preventDefault();
 
     const formData = new FormData(this);
     const errorMessageElement = document.getElementById('error-message');

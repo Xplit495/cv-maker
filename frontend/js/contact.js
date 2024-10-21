@@ -1,30 +1,26 @@
-// Fonction pour initialiser la carte et afficher la position de l'utilisateur
 function initMap(lat, lng) {
-    // Créer une carte centrée sur la position de l'utilisateur avec des animations fluides
     const map = L.map('map', {
         center: [lat, lng],
         zoom: 13,
-        zoomAnimation: true, // Animation fluide activée
-        fadeAnimation: true, // Animation de fondu activée
-        markerZoomAnimation: true // Animation fluide des marqueurs activée
+        zoomAnimation: true,
+        fadeAnimation: true,
+        markerZoomAnimation: true
     });
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
     const customIcon = L.icon({
         iconUrl: 'https://media.licdn.com/dms/image/v2/C4D03AQHR1aD3rjB8_w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1610632041398?e=1735171200&v=beta&t=YcLdEFa1LGc6ReAj8Y92DSCFO3XlDVp_tQNc3H7yYgg', // Remplace par ton URL
-        iconSize: [50, 50], // Taille de l'icône
-        iconAnchor: [25, 38], // Point d'ancrage de l'icône
-        popupAnchor: [0, -38] // Position du popup par rapport à l'icône
+        iconSize: [50, 50],
+        iconAnchor: [25, 38],
+        popupAnchor: [0, -38]
     });
 
-    // Ajouter un marqueur personnalisé à la position de l'utilisateur
     L.marker([lat, lng], { icon: customIcon }).addTo(map)
         .bindPopup('Votre position.')
         .openPopup();
 }
 
-// Fonction pour obtenir la position de l'utilisateur
 function getUserLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -32,7 +28,6 @@ function getUserLocation() {
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
 
-                // Initialiser la carte avec la position de l'utilisateur
                 initMap(lat, lng);
             },
             (error) => {
@@ -45,26 +40,69 @@ function getUserLocation() {
     }
 }
 
-// Appeler la fonction de géolocalisation au chargement de la page
-getUserLocation();
+function checkIfUserIsLoggedIn() {
+    const params = new URLSearchParams(window.location.search);
 
-// Code for sending an email with the user's email client
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+    if (params.get('session') === 'no') {
+        const interactionButtons = document.getElementById('interactionButtons');
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+        while (interactionButtons.children.length > 1) {
+            interactionButtons.removeChild(interactionButtons.lastChild);
+        }
 
-    window.location.href = `mailto:quentin19330@gmail.com
+        const loginButton = document.createElement('a');
+        loginButton.href = '/login';
+        const loginBtnElement = document.createElement('button');
+        loginBtnElement.classList.add('buttons');
+        loginBtnElement.textContent = 'Connexion';
+        loginButton.appendChild(loginBtnElement);
+
+        const signupButton = document.createElement('a');
+        signupButton.href = '/register';
+        const signupBtnElement = document.createElement('button');
+        signupBtnElement.classList.add('buttons');
+        signupBtnElement.textContent = 'Inscription';
+        signupButton.appendChild(signupBtnElement);
+
+        interactionButtons.appendChild(loginButton);
+        interactionButtons.appendChild(signupButton);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    checkIfUserIsLoggedIn();
+    getUserLocation();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+
+        window.location.href = `mailto:quentin19330@gmail.com
     ?subject=${encodeURIComponent(subject)}
     &body=${encodeURIComponent(
-        'Nom : ' + name + '\n' +
-        'Email : ' + email + '\n\n' +
-        'Message : ' + message
-    )}`;
+            'Nom : ' + name + '\n' +
+            'Email : ' + email + '\n\n' +
+            'Message : ' + message
+        )}`;
+    });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Code for a future mail sending system

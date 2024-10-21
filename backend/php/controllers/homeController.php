@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) { // Vérifier si l'utilisateur n'est connecté
+if (!isset($_SESSION['user_id'])) {
     header("Location: /login");
     exit;
 }

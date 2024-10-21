@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker | Paramètres</title>
+    <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/settings.js" defer></script>
+</head>
+
+<header>
+    <img src="../media/logo.png" id="logo" alt="logo">
+    <span id="interactionButtons">
+    <a href="/home">
+      <button class="buttons">Accueil</button>
+    </a>
+    <a href="/dashboard">
+      <button class="buttons">Mon CV</button>
+    </a>
+    <a href="/projects">
+      <button class="buttons">Mes Projets</button>
+    </a>
+    <a href="/contact">
+      <button class="buttons">Contact</button>
+    </a>
+    <a href="/logout">
+      <button class="buttons">Déconnexion</button>
+    </a>
+  </span>
+</header>
+
+<body>
+
+<div class="profile-container">
+    <h2>Mon Profil</h2>
+
+    <div id="error-message"></div>
+
+    <div class="profile-info">
+        <label for="nom-display">Nom :</label>
+        <span id="nom-display">Dupont</span>
+        <button class="edit-btn" id="edit-last_name">Modifier</button>
+    </div>
+
+    <div class="profile-info">
+        <label for="prenom-display">Prénom :</label>
+        <span id="prenom-display">Jean</span>
+        <button class="edit-btn" id="edit-first_name">Modifier</button>
+    </div>
+
+    <div class="profile-info">
+        <label for="email-display">Email :</label>
+        <span id="email-display">jean.dupont@example.com</span>
+        <button class="edit-btn" id="edit-email">Modifier</button>
+    </div>
+
+    <div class="profile-info">
+        <label for="password-display">Mot de passe :</label>
+        <span id="password-display">********</span>
+        <button class="edit-btn" id="edit-password">Modifier</button>
+    </div>
+
+</div>
+
+</body>
+</html>

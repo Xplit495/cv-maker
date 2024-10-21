@@ -1,5 +1,5 @@
 document.getElementById('registerForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Empêche le rechargement de la page lors de la soumission du formulaire
+    event.preventDefault();
 
     const formData = new FormData(this);
     const errorMessageElement = document.getElementById('error-message');
@@ -16,7 +16,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
                 errorMessageElement.style.display = 'block';
                 passwordField.value = '';
             } else if (data.status === 'success') {
-                sessionStorage.setItem('registerSuccess', 'true'); // Enregistre une variable dans le sessionStorage
+                sessionStorage.setItem('registerSuccess', 'true');
                 window.location.href = '/login';
             }
         })

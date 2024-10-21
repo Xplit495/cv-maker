@@ -8,37 +8,60 @@
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/contact.js" defer></script>
-    <!--To map-->
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 </head>
 <body>
 
-<div class="contact-container">
-    <h2>Contactez-nous</h2>
+<header>
+    <img src="../media/logo.png" id="logo" alt="logo">
+    <span id="interactionButtons">
+    <a href="/home">
+      <button class="buttons">Accueil</button>
+    </a>
+    <a href="/dashboard">
+      <button class="buttons">Mon CV</button>
+    </a>
+    <a href="/projects">
+      <button class="buttons">Mes Projets</button>
+    </a>
+    <a href="/settings">
+      <button class="buttons">Paramètres</button>
+    </a>
+    <a href="/logout">
+      <button class="buttons">Déconnexion</button>
+    </a>
+  </span>
+</header>
 
-    <div id="success-message"></div>
-    <div id="error-message"></div>
+<section id="main">
+    <div class="contact-container">
+        <h2>Contactez-nous</h2>
 
-    <form id="contactForm" method="POST">
+        <div id="success-message"></div>
+        <div id="error-message"></div>
 
-        <label for="name">Nom :</label>
-        <input autofocus type="text" id="name" name="name" placeholder="Votre nom" required>
+        <form id="contactForm" method="POST">
 
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" placeholder="Votre email" required>
+            <label for="name">Nom :</label>
+            <input autofocus type="text" id="name" name="name" placeholder="Votre nom" required>
 
-        <label for="subject">Sujet :</label>
-        <input type="text" id="subject" name="subject" placeholder="Le sujet de votre message" required>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
 
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="14" placeholder="Tapez votre message ici..." required></textarea>
+            <label for="subject">Sujet :</label>
+            <input type="text" id="subject" name="subject" placeholder="Le sujet de votre message" required>
 
-        <button type="submit" class="submit-btn">Envoyer</button>
-    </form>
-</div>
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="10" placeholder="Tapez votre message ici..." required></textarea>
 
-<div id="map"></div>
+            <button type="submit" class="submit-btn">Envoyer</button>
+        </form>
+    </div>
+
+    <div id="map"></div>
+</section>
 
 </body>
 </html>

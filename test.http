@@ -1,0 +1,4 @@
+POST http://localhost/backend/php/services/contactService.php
+Content-Type: application/x-www-form-urlencoded
+
+name=John&email=john.doe@gmail.com&subject=test&message=HelloBroINeedHelp

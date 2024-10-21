@@ -3,6 +3,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
 
     const formData = new FormData(this);
     const errorMessageElement = document.getElementById('error-message');
+    const passwordField = document.getElementById('password');
 
     fetch('/backend/php/services/auth/registerService.php', {
         method: 'POST',
@@ -13,6 +14,7 @@ document.getElementById('registerForm').addEventListener('submit', function (eve
             if (data.status === 'error') {
                 errorMessageElement.textContent = data.message;
                 errorMessageElement.style.display = 'block';
+                passwordField.value = '';
             } else if (data.status === 'success') {
                 sessionStorage.setItem('registerSuccess', 'true'); // Enregistre une variable dans le sessionStorage
                 window.location.href = '/login';

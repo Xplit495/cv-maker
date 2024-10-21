@@ -21,6 +21,9 @@ switch ($path) {
     case '/dashboard':
         require 'controllers/dashboardController.php';  // Page du dashboard
         break;
+    case '/contact':
+        require '../../frontend/html/contact.html';  // Page de contact
+        break;
 
     default:
         require '../../frontend/html/404.html';  // Page 404

@@ -17,6 +17,7 @@ $password = trim($_POST['password']);
 // Validation des champs vides
 if (empty($email) || empty($firstName) || empty($lastName) || empty($password)) {
     sendJsonResponse('error', 'Veuillez remplir tous les champs.');
+
 }
 
 // Validation de l'email

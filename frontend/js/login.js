@@ -14,6 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 
     const formData = new FormData(this);
     const errorMessageElement = document.getElementById('error-message');
+    const passwordField = document.getElementById('password');
 
     fetch('/backend/php/services/auth/loginService.php', {
         method: 'POST',
@@ -24,6 +25,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             if (data.status === 'error') {
                 errorMessageElement.textContent = data.message;
                 errorMessageElement.style.display = 'block';
+                passwordField.value = '';
             } else if (data.status === 'success') {
                 window.location.href = '/home';
             }

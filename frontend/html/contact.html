@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/contact.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/contact.js" defer></script>
+    <!--To map-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -29,11 +32,13 @@
         <input type="text" id="subject" name="subject" placeholder="Le sujet de votre message" required>
 
         <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="6" placeholder="Tapez votre message ici..." required></textarea>
+        <textarea id="message" name="message" rows="14" placeholder="Tapez votre message ici..." required></textarea>
 
         <button type="submit" class="submit-btn">Envoyer</button>
     </form>
 </div>
+
+<div id="map"></div>
 
 </body>
 </html>

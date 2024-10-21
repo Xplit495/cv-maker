@@ -1,16 +1,26 @@
 // Fonction pour initialiser la carte et afficher la position de l'utilisateur
 function initMap(lat, lng) {
-    // Créer une carte centrée sur la position de l'utilisateur
-    const map = L.map('map').setView([lat, lng], 13);
+    // Créer une carte centrée sur la position de l'utilisateur avec des animations fluides
+    const map = L.map('map', {
+        center: [lat, lng],
+        zoom: 13,
+        zoomAnimation: true, // Animation fluide activée
+        fadeAnimation: true, // Animation de fondu activée
+        markerZoomAnimation: true // Animation fluide des marqueurs activée
+    });
 
-    // Charger les tuiles de la carte à partir d'OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
-    // Ajouter un marqueur à la position de l'utilisateur
-    L.marker([lat, lng]).addTo(map)
-        .bindPopup('Vous êtes ici.')
+    const customIcon = L.icon({
+        iconUrl: 'https://media.licdn.com/dms/image/v2/C4D03AQHR1aD3rjB8_w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1610632041398?e=1735171200&v=beta&t=YcLdEFa1LGc6ReAj8Y92DSCFO3XlDVp_tQNc3H7yYgg', // Remplace par ton URL
+        iconSize: [50, 50], // Taille de l'icône
+        iconAnchor: [25, 38], // Point d'ancrage de l'icône
+        popupAnchor: [0, -38] // Position du popup par rapport à l'icône
+    });
+
+    // Ajouter un marqueur personnalisé à la position de l'utilisateur
+    L.marker([lat, lng], { icon: customIcon }).addTo(map)
+        .bindPopup('Votre position.')
         .openPopup();
 }
 
@@ -36,25 +46,24 @@ function getUserLocation() {
 }
 
 // Appeler la fonction de géolocalisation au chargement de la page
-document.addEventListener('DOMContentLoaded', function () {
-    getUserLocation();
+getUserLocation();
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+// Code for sending an email with the user's email client
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
 
-        window.location.href = `mailto:quentin19330@gmail.com
+    window.location.href = `mailto:quentin19330@gmail.com
     ?subject=${encodeURIComponent(subject)}
     &body=${encodeURIComponent(
-            'Nom : ' + name + '\n' +
-            'Email : ' + email + '\n\n' +
-            'Message : ' + message
-        )}`;
-    });
+        'Nom : ' + name + '\n' +
+        'Email : ' + email + '\n\n' +
+        'Message : ' + message
+    )}`;
 });
 
 

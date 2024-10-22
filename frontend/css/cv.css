@@ -1,0 +1,30 @@
+#intro {
+    margin-top: 2%;
+}
+
+
+section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+h2 {
+    color: #009cb8;
+    margin-bottom: 10px;
+}
+
+.experience-item {
+    margin-bottom: 20px;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 5px;
+}

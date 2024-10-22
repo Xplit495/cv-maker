@@ -9,14 +9,7 @@ function initMap(lat, lng) {
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
 
-    const customIcon = L.icon({
-        iconUrl: 'https://media.licdn.com/dms/image/v2/C4D03AQHR1aD3rjB8_w/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1610632041398?e=1735171200&v=beta&t=YcLdEFa1LGc6ReAj8Y92DSCFO3XlDVp_tQNc3H7yYgg', // Remplace par ton URL
-        iconSize: [50, 50],
-        iconAnchor: [25, 38],
-        popupAnchor: [0, -38]
-    });
-
-    L.marker([lat, lng], { icon: customIcon }).addTo(map)
+    L.marker([lat, lng]).addTo(map)
         .bindPopup('Votre position.')
         .openPopup();
 }
@@ -46,9 +39,18 @@ function checkIfUserIsLoggedIn() {
     if (params.get('session') === 'no') {
         const interactionButtons = document.getElementById('interactionButtons');
 
-        while (interactionButtons.children.length > 1) {
-            interactionButtons.removeChild(interactionButtons.lastChild);
+        while (interactionButtons.firstChild) {
+            interactionButtons.removeChild(interactionButtons.firstChild);
         }
+
+        const homeButton = document.createElement('a');
+        homeButton.href = '/';
+        const homeBtnElement = document.createElement('button');
+        homeBtnElement.classList.add('buttons');
+        homeBtnElement.textContent = 'Accueil';
+        homeButton.appendChild(homeBtnElement);
+
+        interactionButtons.appendChild(homeButton);
 
         const loginButton = document.createElement('a');
         loginButton.href = '/login';
@@ -68,6 +70,7 @@ function checkIfUserIsLoggedIn() {
         interactionButtons.appendChild(signupButton);
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     checkIfUserIsLoggedIn();

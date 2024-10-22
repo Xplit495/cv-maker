@@ -18,8 +18,8 @@ switch ($path) {
     case '/home':
         require 'controllers/homeController.php';
         break;
-    case '/dashboard':
-        require 'controllers/dashboardController.php';
+    case '/cv':
+        require 'controllers/cvController.php';
         break;
     case '/contact':
         require 'controllers/contactController.php';

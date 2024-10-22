@@ -11,6 +11,3 @@ if (isset($_SESSION['user_id']) || $queryString === 'session=no') {
 header("Location: /contact?session=no");
 require __DIR__ . '/../../../frontend/html/contact.html';
 exit;
-
-
-

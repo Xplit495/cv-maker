@@ -27,6 +27,9 @@ switch ($path) {
     case '/settings':
         require 'controllers/settingsController.php';
         break;
+    case '/projects':
+        require 'controllers/projectsController.php';
+        break;
 
     default:
         require '../../frontend/html/404.html';

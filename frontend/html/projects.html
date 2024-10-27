@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV Maker | Projets</title>
+  <link rel="icon" href="../media/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="../css/projects.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/projects.js" defer></script>
+</head>
+<body>
+
+<div id="darker">
+  <div id="modal">
+    <span id="closeModal">&times;</span>
+    <h2>Dites-nous en plus sur votre projet</h2>
+
+    <form id="addProjectForm" method="POST">
+
+      <div id="titleSection" class="projectSection">
+        <label for="title">Titre :</label>
+        <input required autofocus type="text" id="title" name="titre" placeholder="Titre">
+      </div>
+
+      <div id="descriptionSection" class="projectSection">
+        <label for="description">Description :</label>
+        <textarea required id="description" name="description" placeholder="Description"></textarea>
+      </div>
+
+        <div id="githubSection" class="projectSection">
+            <label for="github">Lien Github :</label>
+            <input required type="url" id="github" name="lien" placeholder="Lien">
+        </div>
+
+      <div id="imageSection" class="projectSection">
+        <label for="image">Image :</label>
+        <input required type="file" id="image" name="image" accept="image/*">
+      </div>
+
+      <div id="submitSection" class="projectSection">
+        <button type="submit" class="specialButtons" id="submitButton">Valider
+          <span>Valider
+          </span>
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<header>
+  <img src="../media/logo.png" id="logo" alt="logo">
+  <span id="interactionButtons">
+    <a href="/home"><button class="buttons">Accueil</button></a>
+    <a href="/cv"><button class="buttons">Mon CV</button></a>
+    <a href="/contact"><button class="buttons">Contact</button></a>
+    <a href="/settings"><button class="buttons">Paramètres</button></a>
+    <a href="/logout"><button class="buttons">Déconnexion</button></a>
+  </span>
+</header>
+
+<div id="addWrapper">
+  <button class="specialButtons" id="buttonAddProject">
+    <span>
+      Ajouter un projet
+    </span>
+  </button>
+</div>
+
+</body>
+</html>

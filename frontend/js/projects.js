@@ -9,55 +9,92 @@ document.addEventListener("DOMContentLoaded", () => {
     const githubInput = document.getElementById("github");
     const imageSection = document.getElementById("imageSection");
     const submitSection = document.getElementById("submitSection");
-    const submitButton = document.getElementById("submitButton");
     const modal = document.getElementById("modal");
 
-    // Afficher la modale au clic sur le bouton "Ajouter un projet"
     buttonAddProject.addEventListener("click", () => {
         darkerOverlay.style.display = "flex";
         titleInput.focus();
     });
 
-    // Fermer la modale au clic sur la croix de fermeture
     closeModalButton.addEventListener("click", () => {
         darkerOverlay.style.display = "none";
     });
 
-    // Fermer la modale si l'utilisateur clique en dehors de celle-ci
     darkerOverlay.addEventListener("click", (event) => {
         if (event.target === darkerOverlay) {
             darkerOverlay.style.display = "none";
         }
     });
 
-    // Afficher le champ de description quand l'utilisateur appuie sur Entrée dans le champ du titre
     titleInput.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Empêche la soumission du formulaire
-            descriptionSection.style.display = "flex"; // Affiche la section description
-            modal.style.height = "35vh"; // Augmente la hauteur de la modale
-            descriptionInput.focus(); // Place le focus dans le champ description
+        if (event.key === "Enter" && (modal.style.height !== "50vh" && modal.style.height !== "70vh")) {
+            event.preventDefault();
+            descriptionSection.style.display = "flex";
+            modal.style.height = "35vh";
+            descriptionInput.focus();
         }
     });
 
-    // Afficher le champ GitHub quand l'utilisateur appuie sur Entrée dans le champ description
     descriptionInput.addEventListener("keydown", (event) => {
-        if (event.key === "Enter") {
-            event.preventDefault(); // Empêche la soumission du formulaire
-            githubSection.style.display = "flex"; // Affiche la section GitHub
-            modal.style.height = "50vh"; // Augmente la hauteur de la modale
-            githubInput.focus(); // Place le focus dans le champ GitHub
+        if (event.key === "Enter" && (modal.style.height !== "70vh")) {
+            event.preventDefault();
+            githubSection.style.display = "flex";
+            modal.style.height = "50vh";
+            githubInput.focus();
         }
     });
 
-    // Afficher le champ image quand l'utilisateur appuie sur Entrée dans le champ GitHub
     githubInput.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
-            event.preventDefault(); // Empêche la soumission du formulaire
-            imageSection.style.display = "flex"; // Affiche la section image
-            submitSection.style.display = "flex"; // Affiche la section de soumission
-            modal.style.height = "70vh"; // Augmente la hauteur de la modale
-            imageSection.querySelector("input").focus(); // Place le focus dans le champ image
+            event.preventDefault();
+            imageSection.style.display = "flex";
+            submitSection.style.display = "flex";
+            modal.style.height = "70vh";
+            imageSection.querySelector("input").focus();
         }
     });
+
+    document.getElementById('addProjectForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const errorMessageElement = document.getElementById('error-message');
+        const successMessageElement = document.getElementById('success-message');
+
+        if (!githubInput.value.includes("github.com")) {
+            alert('Le lien GitHub doit être un lien vers un dépôt GitHub.');
+            return;
+        }
+
+        const formData = new FormData(this)
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+
+        fetch('/backend/php/services/projectInformations/addProject.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    modal.style.height = "75vh";
+                    successMessageElement.textContent = data.message;
+                    successMessageElement.style.display = 'block';
+                    setTimeout(() => {location.reload()
+                    }, 2000);
+                } else {
+                    console.error(data.message);
+                    modal.style.height = "75vh";
+                    errorMessageElement.textContent = data.message;
+                    errorMessageElement.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de l\'envoi du projet :', error);
+                modal.style.height = "75vh";
+                errorMessageElement.textContent = "Une erreur inattendue s'est produite. Veuillez réessayer.";
+                errorMessageElement.style.display = 'block';
+            });
+    });
+
 });

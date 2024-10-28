@@ -8,12 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$pdo = require_once '../dbConnect.php';
-require_once '../utils.php';
+$pdo = require_once '../../dbConnect.php';
+require_once '../../utils.php';
 
 $userId = $_SESSION['user_id'];
 $field = filter_input(INPUT_POST, 'field', FILTER_SANITIZE_SPECIAL_CHARS);
 $value = filter_input(INPUT_POST, 'value', FILTER_SANITIZE_SPECIAL_CHARS);
+
+if (!$field || !$value) {
+    sendJsonResponse('error', 'Tous les champs sont obligatoires.');
+    exit;
+}
 
 $allowedFields = ['email', 'first_name', 'last_name', 'password'];
 

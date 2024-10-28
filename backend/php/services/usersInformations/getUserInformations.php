@@ -8,8 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$pdo = require_once '../dbConnect.php';
-require_once '../utils.php';
+$pdo = require_once '../../dbConnect.php';
+require_once '../../utils.php';
 
 $userId = $_SESSION['user_id'];
 

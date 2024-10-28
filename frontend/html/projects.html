@@ -14,13 +14,17 @@
 <div id="darker">
   <div id="modal">
     <span id="closeModal">&times;</span>
+
+    <div id="success-message"></div>
+    <div id="error-message"></div>
+
     <h2>Dites-nous en plus sur votre projet</h2>
 
     <form id="addProjectForm" method="POST">
 
       <div id="titleSection" class="projectSection">
         <label for="title">Titre :</label>
-        <input required autofocus type="text" id="title" name="titre" placeholder="Titre">
+        <input required type="text" id="title" name="title" placeholder="Titre" autofocus>
       </div>
 
       <div id="descriptionSection" class="projectSection">
@@ -30,17 +34,18 @@
 
         <div id="githubSection" class="projectSection">
             <label for="github">Lien Github :</label>
-            <input required type="url" id="github" name="lien" placeholder="Lien">
+            <input required type="url" id="github" name="github" placeholder="Lien">
         </div>
 
       <div id="imageSection" class="projectSection">
         <label for="image">Image :</label>
-        <input required type="file" id="image" name="image" accept="image/*">
+        <input required type="file" id="image" name="image[]" accept="image/*" multiple>
       </div>
 
       <div id="submitSection" class="projectSection">
-        <button type="submit" class="specialButtons" id="submitButton">Valider
-          <span>Valider
+        <button type="submit" class="specialButtons" id="submitButton">
+          <span>
+            Valider
           </span>
         </button>
       </div>

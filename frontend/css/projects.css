@@ -148,15 +148,6 @@
     cursor: pointer;
 }
 
-.specialButtons:active {
-    transform: scale(0.95);
-}
-
-.specialButtons:hover:before {
-    height: calc(100% - 32px);
-    top: 16px;
-}
-
 .specialButtons:hover:after {
     width: calc(100% - 32px);
     left: 16px;

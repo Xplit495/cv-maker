@@ -1,11 +1,9 @@
 <?php
-// Fonction pour envoyer des réponses JSON
 function sendJsonResponse($status, $message) {
     echo json_encode(['status' => $status, 'message' => $message]);
     exit;
 }
 
-// Fonction pour générer un UUID V4
 function generateUuidV4(): string
 {
     try {

@@ -1,6 +1,6 @@
 const userName = document.getElementById('userName');
 
-fetch('/backend/php/services/getUserInformations.php', {
+fetch('/backend/php/services/usersInformations/getUserInformations.php', {
     method: 'POST'
 })
     .then(response => response.json())

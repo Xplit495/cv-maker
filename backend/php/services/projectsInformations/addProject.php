@@ -20,7 +20,7 @@ if (!$title || !$description || !$githubLink) {
     exit;
 }
 
-$uploadDir = __DIR__ . '/../../data/uploads/';
+$uploadDir = __DIR__ . '/../../../data/uploads/';
 $imagePaths = [];
 
 if (isset($_FILES['image'])) {
@@ -32,7 +32,7 @@ if (isset($_FILES['image'])) {
         $targetPath = $uploadDir . $uniqueName;
 
         if (move_uploaded_file($tmpName, $targetPath)) {
-            $imagePaths[] = $targetPath;
+            $imagePaths[] = 'uploads/' . $uniqueName;
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Échec du téléchargement d\'une ou plusieurs images.']);
             exit;

@@ -2,7 +2,7 @@ const lastName = document.getElementById('nom-display')
 const firstName = document.getElementById('prenom-display')
 const email = document.getElementById('email-display')
 
-fetch('/backend/php/services/getUserInformations.php', {
+fetch('/backend/php/services/usersInformations/getUserInformations.php', {
     method: 'POST'
 })
     .then(response => response.json())
@@ -56,7 +56,7 @@ function activateEditMode(field, displayElementId) {
         formData.append('field', field);
         formData.append('value', newValue);
 
-        fetch('/backend/php/services/modifyUserInformations.php', {
+        fetch('/backend/php/services/usersInformations/modifyUserInformations.php', {
             method: 'POST',
             body: formData
         })

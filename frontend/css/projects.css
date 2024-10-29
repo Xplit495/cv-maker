@@ -159,3 +159,10 @@
     position: relative;
     font-weight: 600;
 }
+
+#projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}

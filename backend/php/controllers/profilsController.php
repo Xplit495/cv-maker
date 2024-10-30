@@ -6,5 +6,5 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-require __DIR__ . '/../../../frontend/html/settings.html';
+require __DIR__ . '/../../../frontend/html/profils.html';
 exit;

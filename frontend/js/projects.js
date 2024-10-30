@@ -79,14 +79,14 @@ document.getElementById('addProjectForm').addEventListener('submit', function(ev
         })
         .catch(error => {
             console.error('Erreur lors de l\'envoi du projet :', error);
-            displayErrorMessage("Une erreur s'est survenue. Veuillez réessayer plus tard.");
+            displayErrorMessage("Une erreur est survenue. Veuillez réessayer plus tard.");
         });
 });
 /////////////////////////////////////////////////////// Add project form ///////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////// Display projects ///////////////////////////////////////////////////////
 function fetchProjects() {
-    fetch('/backend/php/services/projectsInformations/getProjects.php')  // Assurez-vous que le chemin est correct
+    fetch('/backend/php/services/projectsInformations/getProjects.php')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
@@ -107,37 +107,36 @@ function displayProjects(projects) {
     projectContainer.innerHTML = '';
 
     projects.forEach(project => {
+        const projectLink = document.createElement('a');
+        projectLink.href = project.github_link;
+        projectLink.target = "_blank";
+        projectLink.classList.add('project-link');
+
         const projectElement = document.createElement('div');
         projectElement.classList.add('project');
 
-        // Affiche les informations du projet
         projectElement.innerHTML = `
+            <img src="${project.image}" alt="Project Image" class="project-image">
             <h3>${project.title}</h3>
             <p>${project.description}</p>
-            <a href="${project.github_link}" target="_blank">Voir le projet sur GitHub</a>
-            ${displayImages(project.images)}
         `;
 
-        projectContainer.appendChild(projectElement);
+        projectLink.appendChild(projectElement);
+
+        projectContainer.appendChild(projectLink);
     });
 }
 
-function displayImages(imageString) {
-    if (!imageString) return '';
-
-    const images = imageString.split(',');  // Suppose que les images sont séparées par des virgules
-    console.log(images);
-    return images.map(image => `<img src="${image}" alt="Project Image" class="project-image">`).join('');
-}
 
 function displayErrorMessage(message) {
-
+    successMessageElement.style.display = 'none';
     modal.style.height = "75vh";
     errorMessageElement.textContent = message;
     errorMessageElement.style.display = 'block';
 }
 
 function displaySuccessMessage(message) {
+    errorMessageElement.style.display = 'none';
     modal.style.height = "75vh";
     successMessageElement.textContent = message;
     successMessageElement.style.display = 'block';

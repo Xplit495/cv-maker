@@ -24,12 +24,12 @@
 
       <div id="titleSection" class="projectSection">
         <label for="title">Titre :</label>
-        <input required type="text" id="title" name="title" placeholder="Titre" autofocus>
+        <input required type="text" id="title" name="title" placeholder="Titre" maxlength="25" autofocus>
       </div>
 
       <div id="descriptionSection" class="projectSection">
         <label for="description">Description :</label>
-        <textarea required id="description" name="description" placeholder="Description"></textarea>
+        <textarea required id="description" name="description" placeholder="Description" maxlength="90"></textarea>
       </div>
 
         <div id="githubSection" class="projectSection">
@@ -39,7 +39,7 @@
 
       <div id="imageSection" class="projectSection">
         <label for="image">Image :</label>
-        <input required type="file" id="image" name="image[]" accept="image/*" multiple>
+        <input required type="file" id="image" name="image" accept="image/*">
       </div>
 
       <div id="submitSection" class="projectSection">
@@ -58,7 +58,7 @@
     <a href="/home"><button class="buttons">Accueil</button></a>
     <a href="/cv"><button class="buttons">Mon CV</button></a>
     <a href="/contact"><button class="buttons">Contact</button></a>
-    <a href="/settings"><button class="buttons">Paramètres</button></a>
+    <a href="/profils"><button class="buttons">Profil</button></a>
     <a href="/logout"><button class="buttons">Déconnexion</button></a>
   </span>
 </header>

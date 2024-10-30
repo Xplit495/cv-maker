@@ -15,42 +15,49 @@ $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
 $description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_SPECIAL_CHARS);
 $githubLink = filter_input(INPUT_POST, 'github', FILTER_VALIDATE_URL);
 
-if (!$title || !$description || !$githubLink) {
+if (!$title || !$description || !$githubLink || !isset($_FILES['image'])) {
     echo json_encode(['status' => 'error', 'message' => 'Tous les champs sont obligatoires.']);
     exit;
 }
 
-$uploadDir = __DIR__ . '/../../../data/uploads/';
-$imagePaths = [];
+if (strlen($title) > 25) {
+    echo json_encode(['status' => 'error', 'message' => 'Le titre ne doit pas dépasser 25 caractères.']);
+    exit;
+}
 
-if (isset($_FILES['image'])) {
-    foreach ($_FILES['image']['tmp_name'] as $key => $tmpName) {
-        $extension = pathinfo($_FILES['image']['name'][$key], PATHINFO_EXTENSION);
+if (strlen($description) > 90){
+    echo json_encode(['status' => 'error', 'message' => 'La description ne doit pas dépasser 90 caractères.']);
+    exit;
+}
 
-        $uniqueName = $userId . '_' . time() . '_' . uniqid() . '.' . $extension;
+$headers = @get_headers($githubLink);
+if (!($headers && strpos($headers[0], '200'))) {
+    echo json_encode(['status' => 'error', 'message' => "Le lien GitHub n'existe pas."]);
+    exit;
+}
 
-        $targetPath = $uploadDir . $uniqueName;
+$tmpName = $_FILES['image']['tmp_name'];
+$extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+$uniqueName = $userId . '_' . time() . '_' . uniqid() . '.' . $extension;
+$targetPath = __DIR__ . '/../../../data/uploads/' . $uniqueName;
 
-        if (move_uploaded_file($tmpName, $targetPath)) {
-            $imagePaths[] = 'uploads/' . $uniqueName;
-        } else {
-            echo json_encode(['status' => 'error', 'message' => 'Échec du téléchargement d\'une ou plusieurs images.']);
-            exit;
-        }
-    }
+if (move_uploaded_file($tmpName, $targetPath)) {
+    $imagePath = 'uploads/' . $uniqueName;
+} else {
+    echo json_encode(['status' => 'error', 'message' => 'Échec du téléchargement de l\'image.']);
+    exit;
 }
 
 try {
     $stmt = $pdo->prepare("
-        INSERT INTO projects (user_id, title, description, github_link, images)
-        VALUES (:user_id, :title, :description, :github_link, :images)
+        INSERT INTO projects (user_id, title, description, github_link, image)
+        VALUES (:user_id, :title, :description, :github_link, :image)
     ");
     $stmt->bindParam(':user_id', $userId);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':description', $description);
     $stmt->bindParam(':github_link', $githubLink);
-    $imageString = implode(',', $imagePaths);
-    $stmt->bindParam(':images', $imageString);
+    $stmt->bindParam(':image', $imagePath);
 
     if ($stmt->execute()) {
         echo json_encode(['status' => 'success', 'message' => 'Projet ajouté avec succès !']);

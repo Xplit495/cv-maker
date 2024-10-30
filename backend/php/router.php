@@ -24,8 +24,8 @@ switch ($path) {
     case '/contact':
         require 'controllers/contactController.php';
         exit;
-    case '/settings':
-        require 'controllers/settingsController.php';
+    case '/profils':
+        require 'controllers/profilsController.php';
         break;
     case '/projects':
         require 'controllers/projectsController.php';

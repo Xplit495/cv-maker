@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../css/cv.css">
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/cv.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 </head>
 <body>
 
@@ -26,7 +29,7 @@
     <div class="cv-container">
 
         <div class="personal-info">
-            <img id="profile-photo" src="../media/cv-default.jpg" alt="Photo de profil">
+            <img id="profile-photo" src="../media/default_cv_pictures.jpg" alt="Photo de profil">
             <input type="file" id="photo-upload" style="display: none;">
             <h2 id="full-name" spellcheck="false" contenteditable="true">Nom Prénom</h2>
             <p spellcheck="false" contenteditable="true" id="job">
@@ -37,45 +40,40 @@
             <div class="contact-info">
                 <h2>INFORMATIONS</h2>
 
-                <!-- Localisation -->
                 <div id="localisation" class="informations">
-                    <img src="../media/Localisation.png" alt="Localisation">
+                    <img src="../media/location.png" alt="Localisation">
                     <p>
                         <strong>LOCALISATION</strong><br>
                         <span contenteditable="true" spellcheck="false">Ville, Pays</span>
                     </p>
                 </div>
 
-                <!-- Email -->
                 <div id="email" class="informations">
-                    <img src="../media/Mail.png" alt="Email">
+                    <img src="../media/mail.png" alt="Email">
                     <p>
                         <strong>E-MAIL</strong><br>
-                        <span contenteditable="true" spellcheck="false">exemple@mail.com</span>
+                        <span contenteditable="true" spellcheck="false" id="emailText">exemple@mail.com</span>
                     </p>
                 </div>
 
-                <!-- Téléphone -->
                 <div id="telephone" class="informations">
-                    <img src="../media/Telephone.png" alt="Téléphone">
+                    <img src="../media/phone.png" alt="Téléphone">
                     <p>
                         <strong>TÉLÉPHONE</strong><br>
                         <span contenteditable="true" spellcheck="false">06 12 34 56 78</span>
                     </p>
                 </div>
 
-                <!-- Github -->
                 <div id="github" class="informations">
-                    <img src="../media/Github.png" alt="Site Web">
+                    <img src="../media/github.png" alt="Site Web">
                     <p>
                         <strong>GITHUB</strong><br>
                         <span contenteditable="true" spellcheck="false">github.com/utilisateur</span>
                     </p>
                 </div>
 
-                <!-- LinkedIn -->
                 <div id="linkedin" class="informations">
-                    <img src="../media/Linkedin.png" alt="LinkedIn">
+                    <img src="../media/linkedin.png" alt="LinkedIn">
                     <p>
                         <strong>LINKEDIN</strong><br>
                         <span contenteditable="true" spellcheck="false">linkedin.com/in/utilisateur</span>
@@ -144,7 +142,7 @@
         <div id="resumeInfos">
             <div class="about">
                 <div class="about-header">
-                    <img src="../media/Silhouette.png" alt="User Icon">
+                    <img src="../media/shape.png" alt="User Icon">
                     <h2>À PROPOS DE MOI</h2>
                 </div>
                 <p contenteditable="true" spellcheck="false">
@@ -161,7 +159,7 @@
 
             <div class="experiences">
                 <div class="experiences-header">
-                    <img src="../media/Valise.png" alt="Suit Case Icon">
+                    <img src="../media/suit_case.png" alt="Suit Case Icon">
                     <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
                 </div>
 
@@ -222,7 +220,7 @@
 
             <div class="formations">
                 <div class="formations-header">
-                    <img src="../media/Graduation%20Hat.png" alt="Graduation Hat Icon">
+                    <img src="../media/graduation_hat.png" alt="Graduation Hat Icon">
                     <h2>FORMATIONS</h2>
                 </div>
 
@@ -255,6 +253,8 @@
         </div>
 
     </div>
+
+    <button class="buttons" id="downloadButton">Télécharger le CV en PDF</button>
 </div>
 
 </body>

@@ -12,3 +12,22 @@ document.getElementById("photo-upload").addEventListener("change", function(even
         reader.readAsDataURL(file);
     }
 });
+
+const aboutText = document.querySelector(".about p");
+const maxLength = 568;
+
+aboutText.addEventListener("input", function () {
+    if (aboutText.innerText.length > maxLength) {
+        aboutText.innerText = aboutText.innerText.substring(0, maxLength);
+        placeCaretAtEnd(aboutText);
+    }
+});
+
+function placeCaretAtEnd(element) {
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.selectNodeContents(element);
+    range.collapse(false);
+    selection.removeAllRanges();
+    selection.addRange(range);
+}

@@ -22,36 +22,142 @@
   </span>
 </header>
 
-<div id="cv-container">
-    <img id="profile-pic" src="default-pic.jpg" alt="Photo de profil">
-    <div class="cv-field">
-        <span class="cv-label">Prénom : </span><span id="first-name">John</span>
+<div id="wrapper">
+    <div class="cv-container">
+
+        <div class="personal-info">
+            <img id="profile-photo" src="../media/cv-default.jpg" alt="Photo de profil">
+            <input type="file" id="photo-upload" style="display: none;">
+            <h2 id="full-name" spellcheck="false" contenteditable="true">Nom Prénom</h2>
+            <p spellcheck="false" contenteditable="true" id="job">
+                Poste recherché
+                <br>
+                Stage / 60 Demi-Journées
+            </p>
+            <div class="contact-info">
+                <h2>INFORMATIONS</h2>
+
+                <!-- Localisation -->
+                <div id="localisation" class="informations">
+                    <img src="../media/Localisation.png" alt="Localisation">
+                    <p>
+                        <strong>LOCALISATION</strong><br>
+                        <span contenteditable="true" spellcheck="false">Ville, Pays</span>
+                    </p>
+                </div>
+
+                <!-- Email -->
+                <div id="email" class="informations">
+                    <img src="../media/Mail.png" alt="Email">
+                    <p>
+                        <strong>E-MAIL</strong><br>
+                        <span contenteditable="true" spellcheck="false">exemple@mail.com</span>
+                    </p>
+                </div>
+
+                <!-- Téléphone -->
+                <div id="telephone" class="informations">
+                    <img src="../media/Telephone.png" alt="Téléphone">
+                    <p>
+                        <strong>TÉLÉPHONE</strong><br>
+                        <span contenteditable="true" spellcheck="false">06 12 34 56 78</span>
+                    </p>
+                </div>
+
+                <!-- Github -->
+                <div id="github" class="informations">
+                    <img src="../media/Github.png" alt="Site Web">
+                    <p>
+                        <strong>GITHUB</strong><br>
+                        <span contenteditable="true" spellcheck="false">github.com/utilisateur</span>
+                    </p>
+                </div>
+
+                <!-- LinkedIn -->
+                <div id="linkedin" class="informations">
+                    <img src="../media/Linkedin.png" alt="LinkedIn">
+                    <p>
+                        <strong>LINKEDIN</strong><br>
+                        <span contenteditable="true" spellcheck="false">linkedin.com/in/utilisateur</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="hard-skills-section">
+                <h2>Compétences techniques</h2>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Python</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Golang</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Linux</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">HTML</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="soft-skills-section">
+                <h2>Compétences personnelles</h2>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Esprit Collectif</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Organisation</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Communication</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <span contenteditable="true" spellcheck="false">Anglais</span>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="experience-section">
+            <h3>Expériences Professionnelles</h3>
+            <div class="experience">
+                <p><strong>2024 - 2024</strong> Développeur Web</p>
+                <p contenteditable="true" spellcheck="false">MyMemoMaster (Ydays Ynov), Toulouse</p>
+                <ul>
+                    <li contenteditable="true" spellcheck="false">Développement backend de l'application web</li>
+                    <li contenteditable="true" spellcheck="false">Création et gestion de la BDD</li>
+                    <li contenteditable="true" spellcheck="false">MySQL / PHP</li>
+                </ul>
+            </div>
+            <!-- Ajouter d'autres expériences de la même manière -->
+        </div>
+
+        <!-- Autres sections : Compétences, Formations, etc. -->
     </div>
-    <div class="cv-field">
-        <span class="cv-label">Nom : </span><span id="last-name">Doe</span>
-    </div>
-    <div class="cv-field">
-        <span class="cv-label">Email : </span><span id="email">john.doe@example.com</span>
-    </div>
-    <!-- Ajoutez d'autres champs si nécessaire -->
-</div>
-
-<div id="edit-form">
-    <h2>Modifier les informations</h2>
-
-    <label for="first-name-input">Prénom :</label>
-    <input type="text" id="first-name-input" value="John">
-
-    <label for="last-name-input">Nom :</label>
-    <input type="text" id="last-name-input" value="Doe">
-
-    <label for="email-input">Email :</label>
-    <input type="email" id="email-input" value="john.doe@example.com">
-
-    <label for="profile-pic-input">Photo de profil :</label>
-    <input type="file" id="profile-pic-input">
-
-    <!-- Ajoutez d'autres champs si nécessaire -->
 </div>
 
 </body>
